@@ -17,15 +17,15 @@ memory, but what you do with that memory defines what it is.
 
 bbb is designed to sit between C and assembly - allowing for high-level cosntructs, while at the same time providing the programmer with access to low-level functionality. 
 
-An (somewhat explicit) sample of bbb code that prints Fibonacci numbers:
+A (somewhat explicit) sample of bbb code that prints Fibonacci numbers:
 ```
 extern printf
 
-fib: fn(n: m4 aling4 #int) -> m8 #int {
+fib: fn(n: m4 align4 #int) -> m8 #int {
     if n m4==m4 0?m4 {
         ret 0
     }
-    if n m4==m4 1?m8 {
+    if n m4==m4 1?m4 {
         ret 1
     }
     ret call m8 #int fib(n m4-m4 1?m4) + call m8 #int fib(n m4-m4 2?m4);
@@ -37,10 +37,12 @@ main: global fn() -> m4 {
 
     loop {
         if i m4==m4 10?m4 {
-            break
+            break;
         }
 
-        call fn(i: m4 align4);
+        call printf("%zu\n", call fib(i: m4 align4): m8);
+
+        i m4=m4 m4++i;
     }
 
     ret 0;
