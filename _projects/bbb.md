@@ -52,3 +52,23 @@ main: global fn() -> m4 {
 ---
 
 Currently, bbb is not yet fully (nor is close to being fully) functional. It can compile just very basic parts of the language, but I am constantly working on it. One day, the world will welcome yet another programming language!
+
+What has already been implemented? Parser is 100% complete, but in regards to codegen:
+- ✅ - global variable declarations
+- ✅ - layout declarations
+- ✅ - extern declarations
+- ⚠️ - function declarations (return type is not yet processed)
+- ✅ - local variable declarations
+- ✅ - register aliases
+- ❌ - if statement
+- ❌ - labels
+- ❌ - goto statement
+- ❌ - break / continue
+- ❌ - return statement
+- ❌ - avoid blocks
+- ❌ - expressions
+  - ⚠️ - assignment (extremely simple case implemented)
+  - ✅ - literals
+  - ❌ everything else
+- ✅ - NASM blocks
+- ⚠️ - variable palceholders in NASM blocks (not all cases)
